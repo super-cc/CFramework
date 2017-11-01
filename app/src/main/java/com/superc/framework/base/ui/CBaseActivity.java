@@ -13,7 +13,7 @@ import com.superc.framework.utils.AtyManager;
  * QQ：1169380200
  */
 
-public abstract class BaseActivity extends AppCompatActivity {
+public abstract class CBaseActivity extends AppCompatActivity {
 
     protected Bundle mBundle;
 

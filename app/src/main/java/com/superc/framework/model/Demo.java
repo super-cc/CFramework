@@ -4,7 +4,7 @@ import android.databinding.BaseObservable;
 
 /**
  * 创建日期：2017/10/31 on 14:46
- * 描述：数据模型Demo
+ * 描述：数据模型Demo，如果需要数据刷新就继承BaseObservable
  * 作者：郭士超
  * QQ：1169380200
  */

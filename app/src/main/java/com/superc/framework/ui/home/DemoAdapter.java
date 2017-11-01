@@ -4,7 +4,7 @@ import android.content.Context;
 import android.databinding.ViewDataBinding;
 import android.view.View;
 
-import com.superc.framework.base.ui.BaseListViewAdapter;
+import com.superc.framework.base.ui.CBaseListViewAdapter;
 import com.superc.framework.databinding.ItemDemoBinding;
 
 import java.util.List;
@@ -16,7 +16,7 @@ import java.util.List;
  * QQ：1169380200
  */
 
-public class DemoAdapter extends BaseListViewAdapter{
+public class DemoAdapter extends CBaseListViewAdapter {
 
     public DemoAdapter(Context context, List list, int layoutId, int variableId) {
         super(context, list, layoutId, variableId);

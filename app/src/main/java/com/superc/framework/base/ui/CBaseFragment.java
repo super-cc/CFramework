@@ -16,7 +16,7 @@ import android.view.ViewGroup;
  * QQ：1169380200
  */
 
-public abstract class BaseFragment extends Fragment{
+public abstract class CBaseFragment extends Fragment{
 
     protected Activity mActivity;
     protected Bundle mBundle;

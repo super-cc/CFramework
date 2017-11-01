@@ -2,7 +2,6 @@ package com.superc.framework.base.network;
 
 
 import android.os.AsyncTask;
-import android.util.Log;
 
 import com.superc.framework.utils.LogUtil;
 

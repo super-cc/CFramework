@@ -84,7 +84,7 @@ public class AtyManager {
     }
 
     /**
-     * 结束指定类名的Activity
+     * 结束除指定类名的Activity
      */
     public void finishOtherActivity(Class<?> cls) {
         for (Activity activity : activityStack) {

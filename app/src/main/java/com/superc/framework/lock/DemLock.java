@@ -2,7 +2,7 @@ package com.superc.framework.lock;
 
 import android.content.Context;
 
-import com.superc.framework.base.ui.BaseLock;
+import com.superc.framework.base.ui.CBaseLock;
 import com.superc.framework.databinding.FragmentDemoBinding;
 import com.superc.framework.model.Demo;
 
@@ -13,7 +13,7 @@ import com.superc.framework.model.Demo;
  * QQ：1169380200
  */
 
-public class DemLock extends BaseLock<FragmentDemoBinding>{
+public class DemLock extends CBaseLock<FragmentDemoBinding> {
 
     private Demo mDemo;
 

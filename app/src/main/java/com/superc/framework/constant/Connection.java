@@ -21,12 +21,30 @@ import java.util.HashMap;
 
 public class Connection {
 
+    // 这个用来访问网络，全局用一个，节省内存，不需要再new新的
+    private static Connection instance;
+
     private Context mContext;
 
     private static final String USER_ID = "user_id";
     private static final String TOKEN = "token";
     private static final String SUCCESS = "200"; // 成功返回的code码
     private static final String TOKEN_ERROR = "999"; // Token错误返回码
+
+    private Connection(){
+
+    }
+
+    public static Connection getInstance() {
+        if(instance == null) {
+            synchronized(Connection.class) {
+                if(instance == null) {
+                    instance = new Connection();
+                }
+            }
+        }
+        return instance;
+    }
 
     /**
      * Toast错误的Get请求
@@ -43,31 +61,6 @@ public class Connection {
             @Override
             public void onResponse(int identifier, Object response) {
                 listener.tryReturn(identifier, response);
-            }
-        });
-    }
-
-    /**
-     * Toast错误的Post请求，错误不回调
-     *
-     * @param clazz    response类
-     * @param url      访问的url
-     * @param data     参数
-     * @param listener 响应回调
-     */
-    public void postResult(Class clazz, String url, HashMap data, final ResponseListener listener) {
-        if (url == null || data == null) return;
-        HttpPostTask httpPostTask = new HttpPostTask(url, data, url.hashCode(), clazz);
-        HttpTaskSubmit.executeTask(httpPostTask, new HttpAbstractTask.OnResponseCallback() {
-            @Override
-            public void onResponse(int identifier, Object response) {
-                if (((HttpResponse) response).getCode().equals(SUCCESS)) {
-                    listener.tryReturn(Integer.parseInt(SUCCESS), response);
-                } else {
-                    if (((HttpResponse) response).getMsg() != null && !((HttpResponse) response).getMsg().equals("")) {
-                        ToastUtil.showShort(MyApplication.getInstance(), ((HttpResponse) response).getMsg());
-                    }
-                }
             }
         });
     }
@@ -90,6 +83,31 @@ public class Connection {
                     listener.tryReturn(Integer.parseInt(SUCCESS), response);
                 } else {
                     listener.tryReturn(Integer.parseInt(((HttpResponse) response).getCode()), response);
+                }
+            }
+        });
+    }
+
+    /**
+     * Toast错误的Post请求，错误不回调
+     *
+     * @param clazz    response类
+     * @param url      访问的url
+     * @param data     参数
+     * @param listener 响应回调
+     */
+    public void postS(Class clazz, String url, HashMap data, final ResponseListener listener) {
+        if (url == null || data == null) return;
+        HttpPostTask httpPostTask = new HttpPostTask(url, data, url.hashCode(), clazz);
+        HttpTaskSubmit.executeTask(httpPostTask, new HttpAbstractTask.OnResponseCallback() {
+            @Override
+            public void onResponse(int identifier, Object response) {
+                if (((HttpResponse) response).getCode().equals(SUCCESS)) {
+                    listener.tryReturn(Integer.parseInt(SUCCESS), response);
+                } else {
+                    if (((HttpResponse) response).getMsg() != null && !((HttpResponse) response).getMsg().equals("")) {
+                        ToastUtil.showShort(MyApplication.getInstance(), ((HttpResponse) response).getMsg());
+                    }
                 }
             }
         });
@@ -125,6 +143,34 @@ public class Connection {
     }
 
     /**
+     * 不Toast错误的Post请求带Token
+     *
+     * @param clazz    response类
+     * @param url      访问的url
+     * @param data     参数
+     * @param listener 响应回调
+     */
+    public void postToken(Class clazz, String url, HashMap data, final ResponseListener listener) {
+        if (url == null || data == null) return;
+        data.put(USER_ID, SPUtil.get(MyApplication.getInstance(), USER_ID, ""));
+        data.put(TOKEN, SPUtil.get(MyApplication.getInstance(), TOKEN, ""));
+        HttpPostTask httpPostTask = new HttpPostTask(url, data, url.hashCode(), clazz);
+        HttpTaskSubmit.executeTask(httpPostTask, new HttpAbstractTask.OnResponseCallback() {
+            @Override
+            public void onResponse(int identifier, Object response) {
+                if (((HttpResponse) response).getCode().equals(SUCCESS)) {
+                    listener.tryReturn(Integer.parseInt(SUCCESS), response);
+                } else if (((HttpResponse) response).getCode().equals(TOKEN_ERROR)) {
+                    listener.tryReturn(Integer.parseInt(TOKEN_ERROR), response);
+                    toLogin();
+                } else {
+                    listener.tryReturn(Integer.parseInt(((HttpResponse) response).getCode()), response);
+                }
+            }
+        });
+    }
+
+    /**
      * Toast错误的Post请求带Token
      *
      * @param clazz    response类
@@ -132,7 +178,7 @@ public class Connection {
      * @param data     参数
      * @param listener 响应回调
      */
-    public void postT(Class clazz, String url, HashMap data, final ResponseListener listener) {
+    public void postTokenS(Class clazz, String url, HashMap data, final ResponseListener listener) {
         if (url == null || data == null) return;
         data.put(USER_ID, SPUtil.get(MyApplication.getInstance(), USER_ID, ""));
         data.put(TOKEN, SPUtil.get(MyApplication.getInstance(), TOKEN, ""));
@@ -151,34 +197,6 @@ public class Connection {
                     }
                 }
 
-            }
-        });
-    }
-
-    /**
-     * 不Toast错误的Post请求带Token
-     *
-     * @param clazz    response类
-     * @param url      访问的url
-     * @param data     参数
-     * @param listener 响应回调
-     */
-    public void postResultT(Class clazz, String url, HashMap data, final ResponseListener listener) {
-        if (url == null || data == null) return;
-        data.put(USER_ID, SPUtil.get(MyApplication.getInstance(), USER_ID, ""));
-        data.put(TOKEN, SPUtil.get(MyApplication.getInstance(), TOKEN, ""));
-        HttpPostTask httpPostTask = new HttpPostTask(url, data, url.hashCode(), clazz);
-        HttpTaskSubmit.executeTask(httpPostTask, new HttpAbstractTask.OnResponseCallback() {
-            @Override
-            public void onResponse(int identifier, Object response) {
-                if (((HttpResponse) response).getCode().equals(SUCCESS)) {
-                    listener.tryReturn(Integer.parseInt(SUCCESS), response);
-                } else if (((HttpResponse) response).getCode().equals(TOKEN_ERROR)) {
-                    listener.tryReturn(Integer.parseInt(TOKEN_ERROR), response);
-                    toLogin();
-                } else {
-                    listener.tryReturn(Integer.parseInt(((HttpResponse) response).getCode()), response);
-                }
             }
         });
     }

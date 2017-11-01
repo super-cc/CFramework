@@ -12,19 +12,19 @@ import com.superc.framework.utils.ToastUtil;
  * QQ：1169380200
  */
 
-public abstract class BaseLock<B> {
+public abstract class CBaseLock<B> {
 
     protected Context mContext;
     protected B mBinding;
     protected Bundle mBundle;
 
-    public BaseLock(Context context, B binding) {
+    public CBaseLock(Context context, B binding) {
         this.mContext = context;
         this.mBinding = binding;
         init();
     }
 
-    public BaseLock(Context context, B binding, Bundle bundle) {
+    public CBaseLock(Context context, B binding, Bundle bundle) {
         this.mContext = context;
         this.mBinding = binding;
         this.mBundle = bundle;

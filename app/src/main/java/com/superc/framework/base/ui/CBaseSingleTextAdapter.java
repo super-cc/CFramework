@@ -17,7 +17,7 @@ import java.util.ArrayList;
  * QQ：1169380200
  */
 
-public class BaseSingleTextAdapter extends BaseAdapter {
+public class CBaseSingleTextAdapter extends BaseAdapter {
     private Context mContext;
     private ArrayList mTextList;
     private float textSize = 14f;
@@ -28,7 +28,7 @@ public class BaseSingleTextAdapter extends BaseAdapter {
     private OnItemClickLisenter mLisenter;
     private boolean isFrist;
 
-    public BaseSingleTextAdapter(Context context, ArrayList textList) {
+    public CBaseSingleTextAdapter(Context context, ArrayList textList) {
         this.mContext = context;
         this.mTextList = textList;
     }

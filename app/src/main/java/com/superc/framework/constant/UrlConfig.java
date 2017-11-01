@@ -18,7 +18,7 @@ public class UrlConfig {
 
     // xxx功能
     public static final String XXX = BASEURL + "xxx";
-    // yyy功能
-    public static final String YYY = BASEURL + "yyy";
+    // demo功能
+    public static final String DEMO = BASEURL + "demo";
 
 }

@@ -3,7 +3,7 @@ package com.superc.framework.ui.home;
 import android.databinding.DataBindingUtil;
 
 import com.superc.framework.R;
-import com.superc.framework.base.ui.BaseActivity;
+import com.superc.framework.base.ui.CBaseActivity;
 import com.superc.framework.databinding.ActivityDemoBinding;
 import com.superc.framework.lock.DemoLock;
 
@@ -14,11 +14,12 @@ import com.superc.framework.lock.DemoLock;
  * QQ：1169380200
  */
 
-public class DemoActivity extends BaseActivity {
+public class DemoActivity extends CBaseActivity {
 
     @Override
     protected void initBinding() {
 
+        // 数据绑定操作，可以套用代码
         ActivityDemoBinding mBinding = DataBindingUtil.setContentView(this, R.layout.activity_demo);
         DemoLock demoLock = new DemoLock(this, mBinding);
         mBinding.setDemoLock(demoLock);

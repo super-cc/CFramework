@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.superc.framework.R;
-import com.superc.framework.base.ui.BaseFragment;
+import com.superc.framework.base.ui.CBaseFragment;
 import com.superc.framework.databinding.FragmentDemoBinding;
 import com.superc.framework.lock.DemLock;
 
@@ -17,7 +17,7 @@ import com.superc.framework.lock.DemLock;
  * QQ：1169380200
  */
 
-public class DemoFragment extends BaseFragment {
+public class DemoFragment extends CBaseFragment {
 
     @Override
     protected View initBinding(LayoutInflater inflater, ViewGroup container) {
@@ -28,5 +28,6 @@ public class DemoFragment extends BaseFragment {
 
         return mBinding.getRoot();
     }
+
 
 }

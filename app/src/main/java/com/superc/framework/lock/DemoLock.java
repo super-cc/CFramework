@@ -7,9 +7,9 @@ import android.view.View;
 
 import com.superc.framework.BR;
 import com.superc.framework.R;
-import com.superc.framework.base.ui.BaseListViewAdapter;
-import com.superc.framework.base.ui.BaseLock;
-import com.superc.framework.base.ui.BaseRecyclerViewAdapter;
+import com.superc.framework.base.ui.CBaseListViewAdapter;
+import com.superc.framework.base.ui.CBaseLock;
+import com.superc.framework.base.ui.CBaseRecyclerViewAdapter;
 import com.superc.framework.constant.Connection;
 import com.superc.framework.constant.RunTime;
 import com.superc.framework.constant.UrlConfig;
@@ -32,12 +32,12 @@ import java.util.List;
  * QQ：1169380200
  */
 
-public class DemoLock extends BaseLock<ActivityDemoBinding> {
+public class DemoLock extends CBaseLock<ActivityDemoBinding> {
 
     private Demo mDemo;
     private List<DemoItem> mListDemo;
     private DemoAdapter mDemoAdapter;
-    private BaseRecyclerViewAdapter mAdapter;
+    private CBaseRecyclerViewAdapter mAdapter;
 
     public DemoLock(Context context, ActivityDemoBinding binding) {
         super(context, binding);
@@ -52,7 +52,7 @@ public class DemoLock extends BaseLock<ActivityDemoBinding> {
         mListDemo.add(new DemoItem(mDemo.getName(), mDemo.getAge()));
         mDemoAdapter = new DemoAdapter(mContext, mListDemo, R.layout.item_demo, BR.demoItem);
         mBinding.lvDemo.setAdapter(mDemoAdapter); // 这里或者在xml里设置adapter
-        mDemoAdapter.setOnItemClickListener(new BaseListViewAdapter.OnItemClickListener() {
+        mDemoAdapter.setOnItemClickListener(new CBaseListViewAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(ViewDataBinding binding, int position) {
                 showToast(((ItemDemoBinding) binding).getDemoItem().getName()
@@ -62,9 +62,9 @@ public class DemoLock extends BaseLock<ActivityDemoBinding> {
 
         LinearLayoutManager ms = new LinearLayoutManager(mContext);
         mBinding.rvDemo.setLayoutManager(ms);
-        mAdapter = new BaseRecyclerViewAdapter(mContext, mListDemo, R.layout.item_demo, BR.demoItem);
+        mAdapter = new CBaseRecyclerViewAdapter(mContext, mListDemo, R.layout.item_demo, BR.demoItem);
 //        mBinding.rvDemo.setAdapter(mAdapter); // 这里或者在xml里设置adapter
-        mAdapter.setOnItemClickListener(new BaseRecyclerViewAdapter.OnItemClickListener() {
+        mAdapter.setOnItemClickListener(new CBaseRecyclerViewAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(ViewDataBinding binding, int position) {
                 showToast(((ItemDemoBinding) binding).getDemoItem().getName()
@@ -75,7 +75,7 @@ public class DemoLock extends BaseLock<ActivityDemoBinding> {
         // 访问网络的方法
         HashMap hashMap = new HashMap();
         hashMap.put("userId", "1");
-        RunTime.sConnection.post(DemoResponse.class, UrlConfig.XXX, hashMap, new Connection.ResponseListener() {
+        Connection.getInstance().post(DemoResponse.class, UrlConfig.DEMO, hashMap, new Connection.ResponseListener() {
             @Override
             public void tryReturn(int id, Object response) {
                 switch (id) {
@@ -83,7 +83,7 @@ public class DemoLock extends BaseLock<ActivityDemoBinding> {
                         DemoResponse data = (DemoResponse) response;
                         new Demo(data.getData().getName(), String.valueOf(data.getData().getAge()));
                         break;
-                    case 100:
+                    case 202:
                         showToast("用户不存在");
                         break;
                     default:
@@ -109,7 +109,7 @@ public class DemoLock extends BaseLock<ActivityDemoBinding> {
         return mDemoAdapter; // 让xml中可以调用到mAdapter
     }
 
-    public BaseRecyclerViewAdapter getAdapter() {
+    public CBaseRecyclerViewAdapter getAdapter() {
         return mAdapter;
     }
 

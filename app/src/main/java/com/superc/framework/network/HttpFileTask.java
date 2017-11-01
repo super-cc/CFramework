@@ -28,7 +28,7 @@ public class HttpFileTask {
 
     private final OkHttpClient client = new OkHttpClient();
 
-    public void UpLoadPicture(String url, final HashMap<String, String> data, final Connection.Listener listener) {
+    public void UpLoadPicture(String url, final HashMap<String, String> data, final Connection.ResponseListener listener) {
         HashMap hashMap = new HashMap();
         hashMap.put("user_id", data.get("user_id"));
         hashMap.put("mobile", data.get("mobile"));
