@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Framework.iml" filepath="$PROJECT_DIR$/Framework.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cframework/cframework.iml" filepath="$PROJECT_DIR$/cframework/cframework.iml" />
     </modules>
   </component>
 </project>

@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.superc.framework.R;
-import com.superc.framework.base.ui.CBaseFragment;
+import com.superc.cframework.base.ui.CBaseFragment;
 import com.superc.framework.databinding.FragmentDemoBinding;
 import com.superc.framework.lock.DemLock;
 

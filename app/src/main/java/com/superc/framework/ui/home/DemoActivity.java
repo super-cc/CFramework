@@ -3,7 +3,7 @@ package com.superc.framework.ui.home;
 import android.databinding.DataBindingUtil;
 
 import com.superc.framework.R;
-import com.superc.framework.base.ui.CBaseActivity;
+import com.superc.cframework.base.ui.CBaseActivity;
 import com.superc.framework.databinding.ActivityDemoBinding;
 import com.superc.framework.lock.DemoLock;
 

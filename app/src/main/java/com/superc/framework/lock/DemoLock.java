@@ -7,17 +7,16 @@ import android.view.View;
 
 import com.superc.framework.BR;
 import com.superc.framework.R;
-import com.superc.framework.base.ui.CBaseListViewAdapter;
-import com.superc.framework.base.ui.CBaseLock;
-import com.superc.framework.base.ui.CBaseRecyclerViewAdapter;
+import com.superc.cframework.base.ui.CBaseListViewAdapter;
+import com.superc.cframework.base.ui.CBaseLock;
+import com.superc.cframework.base.ui.CBaseRecyclerViewAdapter;
 import com.superc.framework.constant.Connection;
-import com.superc.framework.constant.RunTime;
 import com.superc.framework.constant.UrlConfig;
 import com.superc.framework.databinding.ActivityDemoBinding;
 import com.superc.framework.databinding.ItemDemoBinding;
 import com.superc.framework.model.Demo;
 import com.superc.framework.model.DemoItem;
-import com.superc.framework.network.HttpResponse;
+import com.superc.cframework.network.HttpResponse;
 import com.superc.framework.response.DemoResponse;
 import com.superc.framework.ui.home.DemoAdapter;
 

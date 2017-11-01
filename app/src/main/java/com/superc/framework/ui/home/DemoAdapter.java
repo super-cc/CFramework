@@ -4,7 +4,7 @@ import android.content.Context;
 import android.databinding.ViewDataBinding;
 import android.view.View;
 
-import com.superc.framework.base.ui.CBaseListViewAdapter;
+import com.superc.cframework.base.ui.CBaseListViewAdapter;
 import com.superc.framework.databinding.ItemDemoBinding;
 
 import java.util.List;

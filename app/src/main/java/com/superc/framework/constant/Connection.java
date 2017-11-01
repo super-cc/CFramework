@@ -3,14 +3,14 @@ package com.superc.framework.constant;
 import android.content.Context;
 
 import com.superc.framework.MyApplication;
-import com.superc.framework.base.network.HttpAbstractTask;
-import com.superc.framework.network.HttpGetTask;
-import com.superc.framework.network.HttpPostTask;
-import com.superc.framework.network.HttpResponse;
-import com.superc.framework.network.HttpTaskSubmit;
+import com.superc.cframework.base.network.HttpAbstractTask;
+import com.superc.cframework.network.HttpGetTask;
+import com.superc.cframework.network.HttpPostTask;
+import com.superc.cframework.network.HttpResponse;
+import com.superc.cframework.network.HttpTaskSubmit;
 import com.superc.framework.response.UserResponse;
-import com.superc.framework.utils.SPUtil;
-import com.superc.framework.utils.ToastUtil;
+import com.superc.cframework.utils.SPUtil;
+import com.superc.cframework.utils.ToastUtil;
 
 import java.util.HashMap;
 

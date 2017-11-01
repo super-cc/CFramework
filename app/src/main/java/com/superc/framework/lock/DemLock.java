@@ -2,7 +2,7 @@ package com.superc.framework.lock;
 
 import android.content.Context;
 
-import com.superc.framework.base.ui.CBaseLock;
+import com.superc.cframework.base.ui.CBaseLock;
 import com.superc.framework.databinding.FragmentDemoBinding;
 import com.superc.framework.model.Demo;
 

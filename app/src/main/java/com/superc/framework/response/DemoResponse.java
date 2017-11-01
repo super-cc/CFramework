@@ -1,6 +1,6 @@
 package com.superc.framework.response;
 
-import com.superc.framework.network.HttpResponse;
+import com.superc.cframework.network.HttpResponse;
 
 /**
  * 创建日期：2017/11/1 on 9:29
