@@ -206,7 +206,6 @@ public class Connection {
 
     }
 
-
     public interface ResponseListener {
         void tryReturn(int id, Object response);
     }

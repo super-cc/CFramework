@@ -3,7 +3,6 @@ package com.superc.cframework.network;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
-import com.superc.framework.constant.Connection;
 import com.superc.cframework.utils.LogUtil;
 
 import java.io.File;
@@ -28,7 +27,7 @@ public class HttpFileTask {
 
     private final OkHttpClient client = new OkHttpClient();
 
-    public void UpLoadPicture(String url, final HashMap<String, String> data, final Connection.ResponseListener listener) {
+    public void UpLoadPicture(String url, final HashMap<String, String> data, final ResponseListener listener) {
         HashMap hashMap = new HashMap();
         hashMap.put("user_id", data.get("user_id"));
         hashMap.put("mobile", data.get("mobile"));
@@ -97,4 +96,9 @@ public class HttpFileTask {
 
         return formBody.build();
     }
+
+    public interface ResponseListener {
+        void tryReturn(int id, Object response);
+    }
+
 }
