@@ -12,7 +12,6 @@ import android.app.Application;
 public class MyApplication extends Application{
 
     private volatile static MyApplication instance;
-    private String s;
 
     @Override
     public void onCreate() {
