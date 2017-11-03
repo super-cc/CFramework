@@ -26,4 +26,9 @@ public class DemoActivity extends CBaseActivity {
 
     }
 
+    @Override
+    protected void init() {
+
+    }
+
 }

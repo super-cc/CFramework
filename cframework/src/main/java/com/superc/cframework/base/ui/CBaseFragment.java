@@ -29,9 +29,13 @@ public abstract class CBaseFragment extends Fragment{
 
         View view = initBinding(inflater, container);
 
+        init();
+
         return view;
     }
 
     protected abstract View initBinding(LayoutInflater inflater, ViewGroup container);
+
+    protected abstract void init();
 
 }

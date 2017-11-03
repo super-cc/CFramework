@@ -26,9 +26,13 @@ public abstract class CBaseActivity extends AppCompatActivity {
         mBundle = getIntent().getExtras();
 
         initBinding();
+
+        init();
     }
 
     protected abstract void initBinding();
+
+    protected abstract void init();
 
     @Override
     protected void onDestroy() {

@@ -29,5 +29,10 @@ public class DemoFragment extends CBaseFragment {
         return mBinding.getRoot();
     }
 
+    @Override
+    protected void init() {
+
+    }
+
 
 }
