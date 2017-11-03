@@ -43,15 +43,15 @@ public abstract class CBaseLock<B> {
     }
 
     protected void startActivity(Class clazz) {
-        Intent intent = new Intent();
-        intent.setClass(mContext, clazz);
-        mContext.startActivity(intent);
+        startActivity(clazz, null);
     }
 
     protected void startActivity(Class clazz, Bundle bundle) {
         Intent intent = new Intent();
         intent.setClass(mContext, clazz);
-        intent.putExtras(bundle);
+        if(bundle != null) {
+            intent.putExtras(bundle);
+        }
         mContext.startActivity(intent);
     }
 

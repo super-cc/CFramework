@@ -40,15 +40,15 @@ public abstract class CBaseFragment extends Fragment{
     protected abstract void init();
 
     protected void startActivity(Class clazz) {
-        Intent intent = new Intent();
-        intent.setClass(mActivity, clazz);
-        startActivity(intent);
+        startActivity(clazz, null);
     }
 
     protected void startActivity(Class clazz, Bundle bundle) {
         Intent intent = new Intent();
         intent.setClass(mActivity, clazz);
-        intent.putExtras(bundle);
+        if (bundle != null) {
+            intent.putExtras(bundle);
+        }
         startActivity(intent);
     }
 

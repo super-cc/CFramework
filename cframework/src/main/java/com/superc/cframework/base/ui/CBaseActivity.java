@@ -42,15 +42,15 @@ public abstract class CBaseActivity extends AppCompatActivity {
     }
 
     protected void startActivity(Class clazz) {
-        Intent intent = new Intent();
-        intent.setClass(this, clazz);
-        startActivity(intent);
+        startActivity(clazz, null);
     }
 
     protected void startActivity(Class clazz, Bundle bundle) {
         Intent intent = new Intent();
         intent.setClass(this, clazz);
-        intent.putExtras(bundle);
+        if (bundle != null) {
+            intent.putExtras(bundle);
+        }
         startActivity(intent);
     }
 
