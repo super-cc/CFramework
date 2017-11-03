@@ -23,6 +23,12 @@ dependencies {
         compile 'com.github.super-cc:CFramework:v1.0.3'
 }
 ```
+在Module的build.gradle中android中添加：
+```
+dataBinding {
+        enabled = true
+}
+```
 
 ### 记得添加网络权限
 ```
