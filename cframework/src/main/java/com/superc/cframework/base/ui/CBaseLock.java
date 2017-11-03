@@ -1,6 +1,7 @@
 package com.superc.cframework.base.ui;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.superc.cframework.utils.ToastUtil;
@@ -39,6 +40,19 @@ public abstract class CBaseLock<B> {
 
     protected void showToast(int msg) {
         ToastUtil.showShort(mContext, msg);
+    }
+
+    protected void startActivity(Class clazz) {
+        Intent intent = new Intent();
+        intent.setClass(mContext, clazz);
+        mContext.startActivity(intent);
+    }
+
+    protected void startActivity(Class clazz, Bundle bundle) {
+        Intent intent = new Intent();
+        intent.setClass(mContext, clazz);
+        intent.putExtras(bundle);
+        mContext.startActivity(intent);
     }
 
 }

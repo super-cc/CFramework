@@ -2,6 +2,7 @@ package com.superc.cframework.base.ui;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -37,5 +38,18 @@ public abstract class CBaseFragment extends Fragment{
     protected abstract View initBinding(LayoutInflater inflater, ViewGroup container);
 
     protected abstract void init();
+
+    protected void startActivity(Class clazz) {
+        Intent intent = new Intent();
+        intent.setClass(mActivity, clazz);
+        startActivity(intent);
+    }
+
+    protected void startActivity(Class clazz, Bundle bundle) {
+        Intent intent = new Intent();
+        intent.setClass(mActivity, clazz);
+        intent.putExtras(bundle);
+        startActivity(intent);
+    }
 
 }

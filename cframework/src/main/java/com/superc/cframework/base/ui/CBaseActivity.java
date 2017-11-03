@@ -1,5 +1,6 @@
 package com.superc.cframework.base.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -37,8 +38,20 @@ public abstract class CBaseActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        AtyManager.getInstance().finishActivity(this);  // 删除AtyManager管理类
+        AtyManager.getInstance().finishActivity(this);  // 从AtyManager管理类中删除
     }
 
+    protected void startActivity(Class clazz) {
+        Intent intent = new Intent();
+        intent.setClass(this, clazz);
+        startActivity(intent);
+    }
+
+    protected void startActivity(Class clazz, Bundle bundle) {
+        Intent intent = new Intent();
+        intent.setClass(this, clazz);
+        intent.putExtras(bundle);
+        startActivity(intent);
+    }
 
 }
