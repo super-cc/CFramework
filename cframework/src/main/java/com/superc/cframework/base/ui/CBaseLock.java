@@ -2,6 +2,7 @@ package com.superc.cframework.base.ui;
 
 import android.content.Context;
 import android.content.Intent;
+import android.databinding.ViewDataBinding;
 import android.os.Bundle;
 
 import com.superc.cframework.utils.ToastUtil;
@@ -20,9 +21,7 @@ public abstract class CBaseLock<B> {
     protected Bundle mBundle;
 
     public CBaseLock(Context context, B binding) {
-        this.mContext = context;
-        this.mBinding = binding;
-        init();
+        this(context, binding, null);
     }
 
     public CBaseLock(Context context, B binding, Bundle bundle) {
@@ -49,7 +48,7 @@ public abstract class CBaseLock<B> {
     protected void startActivity(Class clazz, Bundle bundle) {
         Intent intent = new Intent();
         intent.setClass(mContext, clazz);
-        if(bundle != null) {
+        if (bundle != null) {
             intent.putExtras(bundle);
         }
         mContext.startActivity(intent);

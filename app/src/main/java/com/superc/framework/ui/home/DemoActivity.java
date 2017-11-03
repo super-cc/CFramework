@@ -1,6 +1,9 @@
 package com.superc.framework.ui.home;
 
+import android.app.Activity;
+import android.content.Context;
 import android.databinding.DataBindingUtil;
+import android.view.View;
 
 import com.superc.framework.R;
 import com.superc.cframework.base.ui.CBaseActivity;
@@ -16,13 +19,17 @@ import com.superc.framework.lock.DemoLock;
 
 public class DemoActivity extends CBaseActivity {
 
+    private ActivityDemoBinding mBinding;
+    private DemoLock mLock;
+
     @Override
     protected void initBinding() {
 
         // 数据绑定操作，可以套用代码
-        ActivityDemoBinding mBinding = DataBindingUtil.setContentView(this, R.layout.activity_demo);
-        DemoLock demoLock = new DemoLock(this, mBinding);
-        mBinding.setDemoLock(demoLock);
+        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_demo);
+        mLock = new DemoLock(this, mBinding);
+        mBinding.setDemoLock(mLock);
+
 
     }
 
@@ -30,5 +37,6 @@ public class DemoActivity extends CBaseActivity {
     protected void init() {
 
     }
+
 
 }

@@ -19,19 +19,22 @@ import com.superc.framework.lock.DemLock;
 
 public class DemoFragment extends CBaseFragment {
 
+    private FragmentDemoBinding mBinding;
+    private DemLock mLock;
+
     @Override
     protected View initBinding(LayoutInflater inflater, ViewGroup container) {
 
-        FragmentDemoBinding mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_demo, container, false);
-        DemLock demLock = new DemLock(mActivity, mBinding);
-        mBinding.setDemLock(demLock);
+        mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_demo, container, false);
+        mLock = new DemLock(mActivity, mBinding);
+        mBinding.setDemLock(mLock);
 
         return mBinding.getRoot();
     }
 
     @Override
     protected void init() {
-
+        View view = new View(mActivity);
     }
 
 

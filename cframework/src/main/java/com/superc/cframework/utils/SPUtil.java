@@ -91,6 +91,36 @@ public class SPUtil {
         return null;
     }
 
+    // 传入String返回String
+    public static String get(Context context, String key, String defaultObject) {
+        SharedPreferences sp = context.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
+        return sp.getString(key, defaultObject);
+    }
+
+    // 传入int返回int
+    public static int get(Context context, String key, int defaultObject) {
+        SharedPreferences sp = context.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
+        return sp.getInt(key, defaultObject);
+    }
+
+    // 传入boolean返回boolean
+    public static boolean get(Context context, String key, boolean defaultObject) {
+        SharedPreferences sp = context.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
+        return sp.getBoolean(key, defaultObject);
+    }
+
+    // 传入float返回float
+    public static float get(Context context, String key, float defaultObject) {
+        SharedPreferences sp = context.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
+        return sp.getFloat(key, defaultObject);
+    }
+
+    // 传入long返回long
+    public static long get(Context context, String key, long defaultObject) {
+        SharedPreferences sp = context.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
+        return sp.getLong(key, defaultObject);
+    }
+
     /**
      * 移除某个key值已经对应的值
      * @param context

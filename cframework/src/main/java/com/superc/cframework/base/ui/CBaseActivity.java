@@ -22,6 +22,8 @@ public abstract class CBaseActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        initSys();
+
         AtyManager.getInstance().addActivity(this);  // 加入AtyManager管理类
 
         mBundle = getIntent().getExtras();
@@ -29,6 +31,10 @@ public abstract class CBaseActivity extends AppCompatActivity {
         initBinding();
 
         init();
+    }
+
+    protected void initSys(){
+
     }
 
     protected abstract void initBinding();
