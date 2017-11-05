@@ -18,16 +18,23 @@ import java.util.ArrayList;
  */
 
 public class CBaseSingleTextAdapter extends BaseAdapter {
-    private Context mContext;
-    private ArrayList mTextList;
-    private float textSize = 14f;
-    private int textColor = Color.BLACK;
-    private int textGravity = Gravity.NO_GRAVITY;
-    private int patingTop, patingBottom, patingLeft, patingRight;
-    private int hei;
-    private OnItemClickLisenter mLisenter;
-    private boolean isFrist;
 
+    private Context mContext; // 上下文
+    private ArrayList mTextList; // Text数据
+    private float textSize = 14f; // 字号
+    private int textColor = Color.BLACK; // 字颜色
+    private int textGravity = Gravity.NO_GRAVITY; // 字位置
+    private int patingTop, patingBottom, patingLeft, patingRight; // padding
+    private int height; // Text高度
+    private OnItemClickLisenter mLisenter; // 点击监听
+    private boolean isFrist; // 暂时未用
+
+    /**
+     * 构造函数
+     *
+     * @param context 上下文
+     * @param textList Text数据
+     */
     public CBaseSingleTextAdapter(Context context, ArrayList textList) {
         this.mContext = context;
         this.mTextList = textList;
@@ -65,6 +72,7 @@ public class CBaseSingleTextAdapter extends BaseAdapter {
         return tv;
     }
 
+    // 设置一切
     private void attribute(final TextView tv, final int position) {
         tv.setText((String) mTextList.get(position));
         tv.setTextSize(textSize);
@@ -73,8 +81,8 @@ public class CBaseSingleTextAdapter extends BaseAdapter {
         }
         tv.setGravity(textGravity);
         tv.setPadding(patingLeft, patingTop, patingRight, patingBottom);
-        if (hei != 0) {
-            tv.setHeight(hei);
+        if (height != 0) {
+            tv.setHeight(height);
         }
 
         tv.setOnClickListener(new View.OnClickListener() {
@@ -88,33 +96,46 @@ public class CBaseSingleTextAdapter extends BaseAdapter {
 
     }
 
+    // 设置Text字号大小
     public void setTextSize(float textSize) {
         this.textSize = textSize;
     }
 
+    // 设置Text字的颜色
     public void setTextColor(int textColor) {
         this.textColor = textColor;
     }
 
+    // 设置Text的显示位置
     public void setTextGravity(int textGravity) {
         this.textGravity = textGravity;
     }
 
+    // 设置Text的Padding
     public void setPating(int patingTop, int patingBottom, int patingLeft, int patingRight) {
         this.patingTop = patingTop;
         this.patingBottom = patingBottom;
         this.patingLeft = patingLeft;
-        this.patingRight = patingBottom;
+        this.patingRight = patingRight;
     }
 
-    public void setHei(int hei) {
-        this.hei = hei;
+    // 设置Text高度
+    public void setHeight(int height) {
+        this.height = height;
     }
 
+    /**
+     * 设置监听Item点击事件
+     *
+     * @param lisenter 监听
+     */
     public void setOnItemClickLisenter(OnItemClickLisenter lisenter) {
         this.mLisenter = lisenter;
     }
 
+    /**
+     * Item点击事件接口
+     */
     public interface OnItemClickLisenter {
         void onItemClick(TextView tv, int position);
     }

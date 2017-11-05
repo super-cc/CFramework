@@ -19,12 +19,20 @@ import java.util.List;
 
 public class CBaseRecyclerViewAdapter<T> extends RecyclerView.Adapter {
 
-    protected Context mContext;
-    protected List<T> mDataList;
-    private int layoutId;//单布局
-    private int variableId;
-    private OnItemClickListener mListener;
+    protected Context mContext; // 上下文
+    protected List<T> mDataList; // 数据列表
+    private int layoutId; // 单布局
+    private int variableId; // DataBinding的BR
+    private OnItemClickListener mListener; // ItemClick监听
 
+    /**
+     * 构造函数
+     *
+     * @param context 上下文
+     * @param dataList 数据列表
+     * @param layoutId 单布局
+     * @param variableId DataBinding的BR
+     */
     public CBaseRecyclerViewAdapter(Context context, List<T> dataList, int layoutId, int variableId) {
         this.mContext = context;
         this.mDataList = dataList;
@@ -49,6 +57,12 @@ public class CBaseRecyclerViewAdapter<T> extends RecyclerView.Adapter {
         subTask(binding, position);
     }
 
+    /**
+     * 其它操作
+     *
+     * @param binding 绑定
+     * @param position 列表位置
+     */
     private void subTask(final ViewDataBinding binding, final int position) {
         binding.getRoot().setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,10 +82,18 @@ public class CBaseRecyclerViewAdapter<T> extends RecyclerView.Adapter {
         return mDataList.size();
     }
 
+    /**
+     * 设置监听Item点击事件
+     *
+     * @param onItemClickListener 监听
+     */
     public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
         this.mListener = onItemClickListener;
     }
 
+    /**
+     * Item点击事件接口
+     */
     public interface OnItemClickListener {
         void onItemClick(ViewDataBinding binding, int position);
     }
