@@ -1,5 +1,6 @@
 package com.superc.cframework.base.ui;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,6 +19,8 @@ import com.superc.cframework.utils.ToastUtil;
 
 public abstract class CBaseActivity extends AppCompatActivity {
 
+    // 上下文
+    protected Context mContext;
     // 传过来的Bundle数据
     protected Bundle mBundle;
 
@@ -29,6 +32,7 @@ public abstract class CBaseActivity extends AppCompatActivity {
 
         AtyManager.getInstance().addActivity(this);  // 加入AtyManager管理类
 
+        mContext = CBaseActivity.this;
         mBundle = getIntent().getExtras();
 
         initBinding();

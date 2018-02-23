@@ -1,6 +1,7 @@
 package com.superc.cframework.base.ui;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -44,6 +45,11 @@ public abstract class CBaseFragment extends Fragment {
 
     // 初始化操作
     protected abstract void init();
+
+    // 获取上下文
+    public Context getContext() {
+        return mActivity;
+    }
 
     // Toast出Msg
     protected void showToast(String msg) {

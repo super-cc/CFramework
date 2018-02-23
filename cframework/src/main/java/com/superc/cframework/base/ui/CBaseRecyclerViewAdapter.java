@@ -63,7 +63,7 @@ public class CBaseRecyclerViewAdapter<T> extends RecyclerView.Adapter {
      * @param binding 绑定
      * @param position 列表位置
      */
-    private void subTask(final ViewDataBinding binding, final int position) {
+    protected void subTask(final ViewDataBinding binding, final int position) {
         binding.getRoot().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

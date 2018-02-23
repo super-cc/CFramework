@@ -18,7 +18,7 @@ import com.superc.framework.model.Demo;
 import com.superc.framework.model.DemoItem;
 import com.superc.cframework.network.HttpResponse;
 import com.superc.framework.response.DemoResponse;
-import com.superc.framework.ui.home.DemoAdapter;
+import com.superc.framework.ui.demo.DemoAdapter;
 
 import java.util.ArrayList;
 import java.util.HashMap;

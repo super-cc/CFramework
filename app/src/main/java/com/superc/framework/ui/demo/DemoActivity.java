@@ -1,4 +1,4 @@
-package com.superc.framework.ui.home;
+package com.superc.framework.ui.demo;
 
 import android.app.Activity;
 import android.content.Context;
@@ -29,7 +29,6 @@ public class DemoActivity extends CBaseActivity {
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_demo);
         mLock = new DemoLock(this, mBinding);
         mBinding.setDemoLock(mLock);
-
 
     }
 

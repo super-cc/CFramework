@@ -49,6 +49,11 @@ public abstract class CBaseLock<B> {
     // 初始化
     protected abstract void init();
 
+    // 获取上下文
+    public Context getContext() {
+        return mContext;
+    }
+
     // Toast出Msg
     protected void showToast(String msg) {
         ToastUtil.showShort(mContext, msg);

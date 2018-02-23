@@ -1,4 +1,4 @@
-package com.superc.framework.ui.home;
+package com.superc.framework.ui.demo;
 
 import android.content.Context;
 import android.databinding.ViewDataBinding;
