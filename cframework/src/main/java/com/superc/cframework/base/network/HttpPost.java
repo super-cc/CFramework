@@ -27,8 +27,8 @@ public abstract class HttpPost<T> extends HttpTask<T> {
         if (params != null && params.size() > 0) {
             for (Map.Entry<String, String> entry : params.entrySet()) {
                 if (entry.getKey() != null && entry.getValue() != null) {
-                    builder.add(entry.getKey(), entry.getValue());
-                    sb.append(entry.getKey()).append('=').append(entry.getValue()).append('\n');
+                    builder.add(entry.getKey(), String.valueOf(entry.getValue()));
+                    sb.append(entry.getKey()).append('=').append(String.valueOf(entry.getValue())).append('\n');
                 }
             }
         }
