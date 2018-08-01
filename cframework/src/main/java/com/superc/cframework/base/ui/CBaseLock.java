@@ -2,6 +2,7 @@ package com.superc.cframework.base.ui;
 
 import android.content.Context;
 import android.content.Intent;
+import android.databinding.ViewDataBinding;
 import android.os.Bundle;
 
 import com.superc.cframework.utils.ToastUtil;
@@ -13,7 +14,7 @@ import com.superc.cframework.utils.ToastUtil;
  * QQ：1169380200
  */
 
-public abstract class CBaseLock<B> {
+public abstract class CBaseLock<B extends ViewDataBinding> {
 
     // 上下文
     protected Context mContext;
@@ -69,7 +70,7 @@ public abstract class CBaseLock<B> {
      *
      * @param clazz 启动的Activity的类
      */
-    protected void startActivity(Class clazz) {
+    public void startActivity(Class clazz) {
         startActivity(clazz, null, null);
     }
 
@@ -79,7 +80,7 @@ public abstract class CBaseLock<B> {
      * @param clazz 启动的Activity的类
      * @param datas 传入的Bundle数据
      */
-    protected void startActivity(Class clazz, Bundle datas) {
+    public void startActivity(Class clazz, Bundle datas) {
         startActivity(clazz, datas, null);
     }
 
@@ -90,7 +91,7 @@ public abstract class CBaseLock<B> {
      * @param datas 传入的Bundle数据
      * @param options Android过渡动画
      */
-    protected void startActivity(Class clazz, Bundle datas, Bundle options) {
+    public void startActivity(Class clazz, Bundle datas, Bundle options) {
         Intent intent = new Intent();
         intent.setClass(mContext, clazz);
         if (datas != null) {
@@ -99,5 +100,19 @@ public abstract class CBaseLock<B> {
         mContext.startActivity(intent, options);
     }
 
+    /**
+     * 启动Activity
+     * @param intent
+     */
+    public void startActivity(Intent intent){
+        getContext().startActivity(intent);
+    }
+
+    /**
+     * finish Activity
+     */
+    public void finish(){
+        ((CBaseActivity)getContext()).finish();
+    }
 
 }

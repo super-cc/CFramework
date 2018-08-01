@@ -77,7 +77,7 @@ public abstract class CBaseActivity extends AppCompatActivity {
      *
      * @param clazz 启动的Activity的类
      */
-    protected void startActivity(Class clazz) {
+    public void startActivity(Class clazz) {
         startActivity(clazz, null, null);
     }
 
@@ -87,7 +87,7 @@ public abstract class CBaseActivity extends AppCompatActivity {
      * @param clazz 启动的Activity的类
      * @param datas 传入的Bundle数据
      */
-    protected void startActivity(Class clazz, Bundle datas) {
+    public void startActivity(Class clazz, Bundle datas) {
         startActivity(clazz, datas, null);
     }
 
@@ -98,7 +98,7 @@ public abstract class CBaseActivity extends AppCompatActivity {
      * @param datas 传入的Bundle数据
      * @param options Android过渡动画
      */
-    protected void startActivity(Class clazz, Bundle datas, Bundle options) {
+    public void startActivity(Class clazz, Bundle datas, Bundle options) {
         Intent intent = new Intent();
         intent.setClass(this, clazz);
         if (datas != null) {
